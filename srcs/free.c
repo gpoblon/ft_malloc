@@ -31,17 +31,16 @@ static void		mumnmap_and_update_maps(t_map **map, int maptype)
 	t_map		*todel;
 
 	todel = *map;
-	map_full_size = todel->block->size + MAP_SIZE + BLOCK_SIZE;	
+	if (!todel->prev && !todel->next)
+		return ;
+	map_full_size = todel->block->size + MAP_SIZE + BLOCK_SIZE;
 	(*map) = (*map)->next;
 	if (*map)
 		(*map)->prev = todel->prev;
 	else if (todel->prev)
 		todel->prev->next = NULL;
-
 	if (!todel->next && todel->prev)
 		g_types_tab[maptype]->last = todel->prev;
-	else if (!todel->next && !todel->prev)
-		g_types_tab[maptype] = NULL;
 	munmap(todel, map_full_size);
 	todel = NULL;
 }
@@ -53,6 +52,7 @@ static void		browse_found_map(t_map **map, t_block *to_free, int maptype)
 
 	is_updated = 0;
 	to_free->free = TRUE;
+	(*map)->free_space += to_free->size + BLOCK_SIZE;
 	block = (*map)->block;
 	while (block)
 	{

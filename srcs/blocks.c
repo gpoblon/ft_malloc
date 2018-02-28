@@ -39,7 +39,7 @@ static void		update_map_blocks(t_map *map, t_block *block, int type,
 		block->next = create_block(map, map->free_space, block, NULL);
 	else if (!block->next)
 		block->next =
-			create_block(map, oldsize - BLOCK_SIZE - size, block, NULL);
+		create_block(map, oldsize - BLOCK_SIZE - size, block, NULL);
 }
 
 t_block			*create_block(t_map *map, size_t size, t_block *prev_block,
