@@ -1,0 +1,1 @@
+gcc -o $1 tests/$1.c && /usr/bin/time -l ./$1

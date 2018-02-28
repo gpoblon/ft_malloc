@@ -67,10 +67,10 @@ static void		print_alloc_mem_type(int type, char *str_type)
 
 void			show_alloc_mem_full(void)
 {
-	// ft_putstr("\n");
-	// print_alloc_mem_type(TINY, "TINY");
-	// ft_putstr("\n");
+	ft_putstr("\n");
+	print_alloc_mem_type(TINY, "TINY");
+	ft_putstr("\n");
 	print_alloc_mem_type(SMALL, "SMALL");
 	ft_putstr("\n");
-	// print_alloc_mem_type(LARGE, "LARGE");
+	print_alloc_mem_type(LARGE, "LARGE");
 }

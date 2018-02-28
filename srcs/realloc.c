@@ -36,7 +36,7 @@ static void		*update_malloc(t_map **map, t_block *block, size_t size)
 
 	new_ptr = NULL;
 	oldtype = get_type(block->size);
-	if (oldtype == LARGE && size > 512
+	if (oldtype == LARGE && size > SMALL_SIZE
 		&& size <= block->size + (*map)->free_space)
 	{
 		(*map)->free_space += block->size - size;
@@ -81,7 +81,7 @@ static void		*find_map(t_map **map, void *ptr, size_t size, int page)
 		return (browse_found_map(map, ptr - BLOCK_SIZE, size));
 	}
 	else if (maptype != LARGE && (*map)->page_count - 1 > (size_t)page)
-			return (find_map(map, ptr, size, page + 1));
+		return (find_map(map, ptr, size, page + 1));
 	else if ((*map)->next)
 		return (find_map(&(*map)->next, ptr, size, 0));
 	return (NULL);
@@ -111,5 +111,5 @@ void			*ts_realloc(void *ptr, size_t size)
 		}
 		type++;
 	}
-	return (ptr);
+	return (NULL);
 }

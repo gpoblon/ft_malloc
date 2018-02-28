@@ -29,7 +29,7 @@ SRCS =	thread_safe.c \
 		show_alloc_mem_full.c \
 		show_alloc_mem_hex.c \
 		reallocf.c \
-		# calloc.c \
+		calloc.c \
 
 INC_D	=	includes/
 SRC_D	= 	srcs/

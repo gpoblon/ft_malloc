@@ -49,8 +49,8 @@ typedef struct			s_map
 	struct s_map		*last;
 }						t_map;
 
-# define TINY_SIZE 16
-# define SMALL_SIZE 512
+# define TINY_SIZE 512
+# define SMALL_SIZE 1024
 
 # define TRUE 1
 # define FALSE 0
@@ -74,8 +74,8 @@ void					*realloc(void *ptr, size_t size);
 void					*ts_realloc(void *ptr, size_t size);
 void					*reallocf(void *ptr, size_t size);
 void					*ts_reallocf(void *ptr, size_t size);
-// void					*calloc(size_t count, size_t size);
-// void					*ts_calloc(size_t count, size_t size);
+void					*calloc(size_t count, size_t size);
+void					*ts_calloc(size_t count, size_t size);
 
 t_map					*get_map_lst(int type, size_t size);
 t_map					*create_map(int type, size_t size, t_map *prevmap);

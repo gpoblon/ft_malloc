@@ -1,0 +1,1 @@
+gcc -o $1 tests/$1.c -L. libft_malloc.so && sh env_macos.sh /usr/bin/time -l ./$1

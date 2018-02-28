@@ -43,7 +43,7 @@ static t_bool	print_header(t_map *head, char *str_type)
 	if (!head)
 	{
 		ft_putstr(str_type);
-		ft_putstr(" : NULL\n");
+		ft_putstr(" : NULL");
 		return (FALSE);
 	}
 	ft_putstr(str_type);
@@ -69,7 +69,7 @@ void			show_alloc_mem(void)
 	total += print_alloc_mem_type(SMALL, "SMALL");
 	ft_putstr("\n");
 	total += print_alloc_mem_type(LARGE, "LARGE");
-	ft_putstr("Total : ");
+	ft_putstr("\nTotal : ");
 	ft_putnbr_base((long)total, 10);
 	ft_putstr(" octets\n");
 }
